@@ -1,0 +1,31 @@
+package com.jrcg.act4_t4.security;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.jrcg.act4_t4.models.Usuario;
+import com.jrcg.act4_t4.repositories.UsuarioRepository;
+
+@Service
+public class CustomUserDetailsService implements UserDetailsService {
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        // 1. Buscamos al usuario en nuestra base de datos por su email
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con el email: " + email));
+
+        // 2. Si lo encuentra, lo empaquetamos en el formato que Spring Security exige (UserDetails)
+        // Pasamos el email, la contraseña (ya encriptada en la BD) y una lista vacía de permisos (roles)
+        return new User(usuario.getEmail(), usuario.getPassword(), new ArrayList<>());
+    }
+}

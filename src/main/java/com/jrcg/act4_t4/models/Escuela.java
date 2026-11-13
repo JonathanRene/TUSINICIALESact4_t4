@@ -1,0 +1,44 @@
+package com.jrcg.act4_t4.models;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "escuelas")
+public class Escuela {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String nombre;
+
+    @Column(nullable = false, unique = true)
+    private String cct; // Clave del Centro de Trabajo
+
+    private String direccion;
+
+    // Constructores
+    public Escuela() {}
+
+    public Escuela(String nombre, String cct, String direccion) {
+        this.nombre = nombre;
+        this.cct = cct;
+        this.direccion = direccion;
+    }
+
+    // Getters y Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getCct() { return cct; }
+    public void setCct(String cct) { this.cct = cct; }
+    public String getDireccion() { return direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
+}

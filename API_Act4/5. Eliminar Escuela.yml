@@ -1,0 +1,18 @@
+info:
+  name: 5. Eliminar Escuela
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:8086/api/escuelas/1
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb25hdGhhbkBjb3JyZW8uY29tIiwiaWF0IjoxNzk0NTM2MzA1LCJleHAiOjE3OTQ1NzIzMDV9.QlkAoV2pyO1hDI1WnolHXKeJjhFuLTb2nPVmGOlPZks
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

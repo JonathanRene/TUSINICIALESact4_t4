@@ -1,0 +1,26 @@
+info:
+  name: 3. Crear Escuela
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8086/api/escuelas
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Instituto Tecnológico de Oaxaca",
+        "cct": "20DIT0001Z",
+        "direccion": "Av. Víctor Bravo Ahuja 125"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb25hdGhhbkBjb3JyZW8uY29tIiwiaWF0IjoxNzk0NTM2MzA1LCJleHAiOjE3OTQ1NzIzMDV9.QlkAoV2pyO1hDI1WnolHXKeJjhFuLTb2nPVmGOlPZks
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
