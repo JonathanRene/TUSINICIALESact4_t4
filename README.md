@@ -1,4 +1,4 @@
-# Actividad 4: API REST Segura con Spring Boot, Spring Security y JWT
+# Act4. API REST con Spring Boot, Spring Security y JWT (sin frontend)
 
 API REST desarrollada en **Spring Boot** que implementa autenticación basada en **JWT (JSON Web Token)**, validación estricta de datos mediante **DTOs**, control de códigos de estado HTTP y un CRUD completo protegido. El proyecto incluye su colección de pruebas documentada en **Bruno** y se encuentra desplegado en un servidor VPS en la nube.
 
